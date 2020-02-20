@@ -1,0 +1,10 @@
+language: generic
+sudo: require
+services:
+    - docker
+
+before_install:
+    - docker build -t jordicreus/client-single -f Dockerfile .
+scripts:
+    - docker run -e CI=true jordicreus/client-single npm run test
+    
